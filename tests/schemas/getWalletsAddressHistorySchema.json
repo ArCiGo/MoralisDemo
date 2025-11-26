@@ -1,0 +1,937 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$ref": "#/definitions/Welcome4",
+    "definitions": {
+        "Welcome4": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "page_size": {
+                    "type": "integer"
+                },
+                "page": {
+                    "type": "integer"
+                },
+                "limit": {
+                    "type": "integer"
+                },
+                "result": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Result"
+                    }
+                },
+                "cursor": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "cursor",
+                "limit",
+                "page",
+                "page_size",
+                "result"
+            ],
+            "title": "Welcome4"
+        },
+        "Result": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "hash": {
+                    "type": "string"
+                },
+                "nonce": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "transaction_index": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "from_address_entity": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "from_address_entity_logo": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "qt-uri-protocols": [
+                                "https"
+                            ],
+                            "qt-uri-extensions": [
+                                ".png"
+                            ]
+                        }
+                    ]
+                },
+                "from_address": {
+                    "type": "string"
+                },
+                "from_address_label": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/ResultFromAddressLabel"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "to_address_entity": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "to_address_entity_logo": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "qt-uri-protocols": [
+                                "https"
+                            ],
+                            "qt-uri-extensions": [
+                                ".png"
+                            ]
+                        }
+                    ]
+                },
+                "to_address": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "to_address_label": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "value": {
+                    "type": "string"
+                },
+                "gas": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "gas_price": {
+                    "type": "string"
+                },
+                "receipt_cumulative_gas_used": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "receipt_gas_used": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "receipt_contract_address": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "receipt_status": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "block_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "block_number": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "block_hash": {
+                    "type": "string"
+                },
+                "transaction_fee": {
+                    "type": "string"
+                },
+                "method_label": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "nft_transfers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/NftTransfer"
+                    }
+                },
+                "erc20_transfers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Erc20Transfer"
+                    }
+                },
+                "native_transfers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/NativeTransfer"
+                    }
+                },
+                "summary": {
+                    "type": "string"
+                },
+                "possible_spam": {
+                    "type": "boolean"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "contract_interactions": {
+                    "$ref": "#/definitions/ContractInteractions"
+                }
+            },
+            "required": [
+                "block_hash",
+                "block_number",
+                "block_timestamp",
+                "category",
+                "erc20_transfers",
+                "from_address",
+                "from_address_entity",
+                "from_address_entity_logo",
+                "from_address_label",
+                "gas",
+                "gas_price",
+                "hash",
+                "method_label",
+                "native_transfers",
+                "nft_transfers",
+                "nonce",
+                "possible_spam",
+                "receipt_contract_address",
+                "receipt_cumulative_gas_used",
+                "receipt_gas_used",
+                "receipt_status",
+                "summary",
+                "to_address",
+                "to_address_entity",
+                "to_address_entity_logo",
+                "to_address_label",
+                "transaction_fee",
+                "transaction_index",
+                "value"
+            ],
+            "title": "Result"
+        },
+        "ContractInteractions": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "approvals": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Approval"
+                    }
+                },
+                "set_approvals_all": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SetApprovalsAll"
+                    }
+                }
+            },
+            "required": [],
+            "title": "ContractInteractions"
+        },
+        "Approval": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "value": {
+                    "type": "string"
+                },
+                "value_formatted": {
+                    "type": "string"
+                },
+                "token": {
+                    "$ref": "#/definitions/Token"
+                },
+                "spender": {
+                    "$ref": "#/definitions/Spender"
+                }
+            },
+            "required": [
+                "spender",
+                "token",
+                "value",
+                "value_formatted"
+            ],
+            "title": "Approval"
+        },
+        "Spender": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "address_label": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "entity": {
+                    "type": "string"
+                },
+                "entity_logo": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "qt-uri-protocols": [
+                                "https"
+                            ],
+                            "qt-uri-extensions": [
+                                ".png"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "address",
+                "address_label"
+            ],
+            "title": "Spender"
+        },
+        "Token": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "address_label": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "token_name": {
+                    "type": "string"
+                },
+                "token_logo": {
+                    "type": "string",
+                    "qt-uri-protocols": [
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".gif",
+                        ".png"
+                    ]
+                },
+                "token_symbol": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "address",
+                "address_label",
+                "token_logo",
+                "token_name",
+                "token_symbol"
+            ],
+            "title": "Token"
+        },
+        "SetApprovalsAll": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "token": {
+                    "$ref": "#/definitions/Token"
+                },
+                "operator": {
+                    "$ref": "#/definitions/Operator"
+                }
+            },
+            "required": [
+                "operator",
+                "token"
+            ],
+            "title": "SetApprovalsAll"
+        },
+        "Operator": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "address_label": {
+                    "type": "null"
+                }
+            },
+            "required": [
+                "address",
+                "address_label"
+            ],
+            "title": "Operator"
+        },
+        "Erc20Transfer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "token_name": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "token_symbol": {
+                    "type": "string"
+                },
+                "token_logo": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "qt-uri-protocols": [
+                                "https"
+                            ],
+                            "qt-uri-extensions": [
+                                ".jpg",
+                                ".png",
+                                ".webp"
+                            ]
+                        }
+                    ]
+                },
+                "token_decimals": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "from_address_entity": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "from_address_entity_logo": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "qt-uri-protocols": [
+                                "https"
+                            ],
+                            "qt-uri-extensions": [
+                                ".png"
+                            ]
+                        }
+                    ]
+                },
+                "from_address": {
+                    "type": "string"
+                },
+                "from_address_label": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "to_address_entity": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "to_address_entity_logo": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "qt-uri-protocols": [
+                                "https"
+                            ],
+                            "qt-uri-extensions": [
+                                ".png"
+                            ]
+                        }
+                    ]
+                },
+                "to_address": {
+                    "type": "string"
+                },
+                "to_address_label": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "address": {
+                    "type": "string"
+                },
+                "log_index": {
+                    "type": "integer"
+                },
+                "value": {
+                    "type": "string"
+                },
+                "possible_spam": {
+                    "type": "boolean"
+                },
+                "verified_contract": {
+                    "type": "boolean"
+                },
+                "security_score": {
+                    "anyOf": [
+                        {
+                            "type": "integer"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "direction": {
+                    "$ref": "#/definitions/Direction"
+                },
+                "value_formatted": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "address",
+                "direction",
+                "from_address",
+                "from_address_entity",
+                "from_address_entity_logo",
+                "from_address_label",
+                "log_index",
+                "possible_spam",
+                "security_score",
+                "to_address",
+                "to_address_entity",
+                "to_address_entity_logo",
+                "to_address_label",
+                "token_decimals",
+                "token_logo",
+                "token_name",
+                "token_symbol",
+                "value",
+                "value_formatted",
+                "verified_contract"
+            ],
+            "title": "Erc20Transfer"
+        },
+        "NativeTransfer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "from_address_entity": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "from_address_entity_logo": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "qt-uri-protocols": [
+                                "https"
+                            ],
+                            "qt-uri-extensions": [
+                                ".png"
+                            ]
+                        }
+                    ]
+                },
+                "from_address": {
+                    "type": "string"
+                },
+                "from_address_label": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "to_address_entity": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "to_address_entity_logo": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "qt-uri-protocols": [
+                                "https"
+                            ],
+                            "qt-uri-extensions": [
+                                ".png"
+                            ]
+                        }
+                    ]
+                },
+                "to_address": {
+                    "type": "string"
+                },
+                "to_address_label": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "value": {
+                    "type": "string"
+                },
+                "value_formatted": {
+                    "type": "string"
+                },
+                "direction": {
+                    "$ref": "#/definitions/Direction"
+                },
+                "internal_transaction": {
+                    "type": "boolean"
+                },
+                "token_symbol": {
+                    "$ref": "#/definitions/TokenSymbol"
+                },
+                "token_logo": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".png"
+                    ]
+                }
+            },
+            "required": [
+                "direction",
+                "from_address",
+                "from_address_entity",
+                "from_address_entity_logo",
+                "from_address_label",
+                "internal_transaction",
+                "to_address",
+                "to_address_entity",
+                "to_address_entity_logo",
+                "to_address_label",
+                "token_logo",
+                "token_symbol",
+                "value",
+                "value_formatted"
+            ],
+            "title": "NativeTransfer"
+        },
+        "NftTransfer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "log_index": {
+                    "type": "integer"
+                },
+                "value": {
+                    "type": "string"
+                },
+                "contract_type": {
+                    "$ref": "#/definitions/ContractType"
+                },
+                "transaction_type": {
+                    "$ref": "#/definitions/TransactionType"
+                },
+                "token_address": {
+                    "type": "string"
+                },
+                "token_id": {
+                    "type": "string"
+                },
+                "from_address_entity": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "from_address_entity_logo": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "qt-uri-protocols": [
+                                "https"
+                            ],
+                            "qt-uri-extensions": [
+                                ".png"
+                            ]
+                        }
+                    ]
+                },
+                "from_address": {
+                    "type": "string"
+                },
+                "from_address_label": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/NftTransferFromAddressLabel"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "to_address_entity": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "to_address_entity_logo": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "qt-uri-protocols": [
+                                "https"
+                            ],
+                            "qt-uri-extensions": [
+                                ".png"
+                            ]
+                        }
+                    ]
+                },
+                "to_address": {
+                    "type": "string"
+                },
+                "to_address_label": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/ToAddressLabel"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "amount": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "operator": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "possible_spam": {
+                    "type": "boolean"
+                },
+                "verified_collection": {
+                    "type": "boolean"
+                },
+                "direction": {
+                    "$ref": "#/definitions/Direction"
+                }
+            },
+            "required": [
+                "amount",
+                "contract_type",
+                "direction",
+                "from_address",
+                "from_address_entity",
+                "from_address_entity_logo",
+                "from_address_label",
+                "log_index",
+                "operator",
+                "possible_spam",
+                "to_address",
+                "to_address_entity",
+                "to_address_entity_logo",
+                "to_address_label",
+                "token_address",
+                "token_id",
+                "transaction_type",
+                "value",
+                "verified_collection"
+            ],
+            "title": "NftTransfer"
+        },
+        "Direction": {
+            "type": "string",
+            "enum": [
+                "receive",
+                "send"
+            ],
+            "title": "Direction"
+        },
+        "ResultFromAddressLabel": {
+            "type": "string",
+            "enum": [
+                "reubenrjs.eth",
+                "Relay.link: Bridge Solver",
+                "LayerZero: Executor"
+            ],
+            "title": "ResultFromAddressLabel"
+        },
+        "TokenSymbol": {
+            "type": "string",
+            "enum": [
+                "ETH"
+            ],
+            "title": "TokenSymbol"
+        },
+        "ContractType": {
+            "type": "string",
+            "enum": [
+                "ERC721",
+                "ERC1155"
+            ],
+            "title": "ContractType"
+        },
+        "NftTransferFromAddressLabel": {
+            "type": "string",
+            "enum": [
+                "Null Address: 0x000...000",
+                "reubenrjs.eth",
+                "Pooled Ether (PETH)"
+            ],
+            "title": "NftTransferFromAddressLabel"
+        },
+        "ToAddressLabel": {
+            "type": "string",
+            "enum": [
+                "reubenrjs.eth",
+                "Null Address: 0x000...000",
+                "MoonPay: DirectTransactionAtomicWrapper (Proxy)"
+            ],
+            "title": "ToAddressLabel"
+        },
+        "TransactionType": {
+            "type": "string",
+            "enum": [
+                "Single",
+                "Batch"
+            ],
+            "title": "TransactionType"
+        }
+    }
+}
