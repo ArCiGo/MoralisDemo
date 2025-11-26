@@ -59,4 +59,24 @@ This is a basic project to test the following endpoint: */wallets/{address}/hist
 > npm run test
 ```
 
-When both commands are executed, the **playwright-report** and **test-results** folders are generated. 
+When both commands are executed, the **playwright-report** and **test-results** folders are generated.
+
+In order to open the HTML report, you can use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension in **Visual Studio Code**, or go directly to the place where the report is generated: `playwright-report/index.html`.
+
+## CI/CD 🔄.
+
+The CI/CD pipeline is configured using **GitHub Actions**. The pipeline is triggered when a push or pull request is made to the `main` or `master` branch. The pipeline will execute the tests and generate a report. The report will be uploaded as an artifact.
+
+During the CI/CD execution, the **.env** file is generated on the fly, by getting the secrets from **GitHub** in the following way:
+
+```yaml
+- name: Create .env file
+  env:
+    ENV: ${{ vars.ENV }}
+  run: |
+    echo "${ENV}" | base64 --decode > .env
+    ls -la
+    cat .env
+```
+
+This step can be found in the `github/workflows/playwright.yml` file.
