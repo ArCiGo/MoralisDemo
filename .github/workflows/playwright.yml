@@ -17,7 +17,7 @@ jobs:
       env:
         ENV: ${{ vars.ENV }}
       run: |
-        echo "${ENV_PRELIVE}" | base64 --decode > .env
+        echo "${ENV}" | base64 --decode > .env
         ls -la
         cat .env
     - name: Install dependencies
