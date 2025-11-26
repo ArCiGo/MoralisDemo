@@ -19,6 +19,7 @@ jobs:
       run: |
         echo "${ENV_PRELIVE}" | base64 --decode > .env
         ls -la
+        cat .env
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers

@@ -59,4 +59,4 @@ This is a basic project to test the following endpoint: */wallets/{address}/hist
 > npm run test
 ```
 
-When both commands are executed, the playwright-report and test-results folders are generated. 
+When both commands are executed, the **playwright-report** and **test-results** folders are generated. 
