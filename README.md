@@ -65,7 +65,7 @@ In order to open the HTML report, you can use the [Live Server](https://marketpl
 
 ## CI/CD 🔄.
 
-The CI/CD pipeline is configured using **GitHub Actions**. The pipeline is triggered when a push or pull request is made to the `main` or `master` branch. The pipeline will execute the tests and generate a report. The report will be uploaded as an artifact.
+The CI/CD pipeline is configured using **GitHub Actions**. The pipeline is triggered when a push or pull request is made to the `main` or `master` branch. The pipeline will execute the tests and generates a report. The report is uploaded as an artifact.
 
 During the CI/CD execution, the **.env** file is generated on the fly, by getting the secrets from **GitHub** in the following way:
 
